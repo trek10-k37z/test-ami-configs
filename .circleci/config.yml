@@ -22,7 +22,7 @@ jobs:
           working_directory: /
           command: |
             apk --no-cache update
-            apk --no-cache add python py-pip py-setuptools ca-certificates curl groff less
+            apk --no-cache add python py-pip py-setuptools ca-certificates curl groff less jq
             pip --no-cache-dir install awscli
       - run:
           name: Build base
