@@ -21,11 +21,9 @@ jobs:
           name: Install dependencies
           working_directory: /
           command: |
-            apt-get -y -qq update
-            apt-get -y -qq install python3.4-dev
-            curl -O https://bootstrap.pypa.io/get-pip.py
-            python3.4 get-pip.py --user
-            pip install awscli --upgrade --user
+            apk --no-cache update
+            apk --no-cache add python py-pip py-setuptools ca-certificates curl groff less
+            pip --no-cache-dir install awscli
       - run:
           name: Build base
           command: ./scripts/build.sh base ./base/base.json
